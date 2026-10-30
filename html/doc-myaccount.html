@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Account - MediCare+</title>
+<style>
+  body{margin:0; font-family:'Segoe UI', sans-serif; background:#f8fafc;}
+  .top{background:white; padding:15px 30px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+  .logo{color:#1e40af; font-weight:bold; font-size:22px;}
+  .container{max-width:1100px; margin:25px auto; display:grid; grid-template-columns:280px 1fr; gap:20px; padding:0 20px;}
+  .sidebar{background:white; border-radius:12px; padding:20px; height:fit-content; box-shadow:0 4px 15px rgba(0,0,0,0.05); text-align:center;}
+  .profile-pic-wrap{position:relative; width:100px; height:100px; margin:0 auto;}
+  .profile-pic{width:100px; height:100px; background:#e0e7ff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:40px; overflow:hidden; cursor:pointer; border:3px solid #1e40af;}
+  .profile-pic img{width:100%; height:100%; object-fit:cover;}
+  .camera-btn{position:absolute; bottom:0; right:0; background:#1e40af; color:white; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:14px;}
+  .menu{text-align:left; margin-top:15px;}
+  .menu a{display:block; padding:12px; text-decoration:none; color:#475569; border-radius:8px; margin-top:8px; cursor:pointer;}
+  .menu a.active{background:#1e40af; color:white;}
+  .main{background:white; border-radius:12px; padding:25px; box-shadow:0 4px 15px rgba(0,0,0,0.05); min-height:400px;}
+  .info-box{background:#f1f5f9; padding:15px; border-radius:10px; margin-top:15px;}
+  .content-section{display:none;}
+  .content-section.active{display:block;}
+  .input{width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:8px; margin-top:5px; box-sizing:border-box;}
+  .btn{background:#1e40af; color:white; padding:10px 20px; border-radius:8px; border:none; cursor:pointer; margin-top:10px; font-weight:bold;}
+  .btn-red{background:#ef4444;}
+  .switch{display:flex; justify-content:space-between; align-items:center; background:#f1f5f9; padding:12px; border-radius:8px; margin-top:10px;}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="logo">+ MediCare+</div>
+  <a href="homepage.html" style="background:#1e40af; color:white; padding:7px 16px; border-radius:20px; text-decoration:none;">← Back</a>
+</div>
+
+<div class="container">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="profile-pic-wrap" onclick="document.getElementById('fileInput').click()">
+      <div class="profile-pic" id="avatar">👤</div>
+      <div class="camera-btn">📷</div>
+    </div>
+    <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="changeProfilePic(event)">
+    <p style="font-size:12px; color:#64748b; margin-top:8px;">پروفائل پکچر تبدیل کرنے کے لیے کلک کریں</p>
+    
+    <h3 style="margin:10px 0 0 0;">Ahmed Khan</h3>
+    <p style="color:#64748b; font-size:13px; margin:0 0 15px 0;">ahmed.khan@email.com</p>
+    
+    <div class="menu">
+      <a id="link-profile" class="active" onclick="showSection('profile')">📋 My Profile</a>
+      <a id="link-appointments" onclick="showSection('appointments')">📅 My Appointments</a>
+      <a id="link-history" onclick="showSection('history')">💊 Medical History</a>
+      <a id="link-saved" onclick="showSection('saved')">❤️ Saved Doctors</a>
+      <a id="link-settings" onclick="showSection('settings')">⚙️ Settings</a>
+      <a style="color:#ef4444;" onclick="doLogout()">🚪 Logout</a>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div id="profile" class="content-section active">
+      <h2>My Profile</h2>
+      <div class="info-box"><b>Full Name:</b> Ahmed Khan<br><br><b>Phone:</b> +92 300 1234567<br><br><b>Age:</b> 24<br><br><b>Address:</b> Karachi</div>
+    </div>
+
+    <div id="appointments" class="content-section">
+      <h2>My Appointments</h2>
+      <div class="info-box"><p><b>Dr. Jack Miller</b> - 28 Oct - Confirmed</p></div>
+    </div>
+
+    <div id="history" class="content-section">
+      <h2>Medical History</h2>
+      <div class="info-box"><p>Dr. Sarah - General Checkup</p></div>
+    </div>
+
+    <div id="saved" class="content-section">
+      <h2>Saved Doctors</h2>
+      <div class="info-box"><p>No saved doctors yet.</p></div>
+    </div>
+
+    <!-- SETTINGS - YEH AB KAAM KAREGA -->
+    <div id="settings" class="content-section">
+      <h2>Settings</h2>
+      
+      <div class="info-box">
+        <h3 style="margin:0 0 10px 0;">🔒 Change Password</h3>
+        <label>Current Password</label><input type="password" class="input" placeholder="Enter current password">
+        <label style="margin-top:10px; display:block;">New Password</label><input type="password" id="newPass" class="input" placeholder="Enter new password">
+        <label style="margin-top:10px; display:block;">Confirm New Password</label><input type="password" id="confirmPass" class="input" placeholder="Confirm new password">
+        <button class="btn" onclick="updatePassword()">Update Password</button>
+        <p id="passMsg" style="font-size:13px; color:green; display:none;">Password updated successfully!</p>
+      </div>
+
+      <div class="info-box">
+        <h3 style="margin:0 0 10px 0;">🔔 Notifications</h3>
+        <div class="switch"><span>Email Notifications</span><input type="checkbox" checked></div>
+        <div class="switch"><span>SMS Alerts for Appointment</span><input type="checkbox" checked></div>
+        <div class="switch"><span>Appointment Reminders</span><input type="checkbox"></div>
+        <button class="btn" onclick="alert('Notification settings saved!')">Save Settings</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function showSection(id){
+  document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.menu a').forEach(a => a.classList.remove('active'));
+  let link = document.getElementById('link-' + id);
+  if(link) link.classList.add('active');
+}
+
+// 1. Profile Pic Upload
+function changeProfilePic(event){
+  let file = event.target.files[0];
+  if(file){
+    let reader = new FileReader();
+    reader.onload = function(e){
+      document.getElementById('avatar').innerHTML = '<img src="'+e.target.result+'">';
+    }
+    reader.readAsDataURL(file);
+  }
+}
+
+// 2. Password Update
+function updatePassword(){
+  let newP = document.getElementById('newPass').value;
+  let confP = document.getElementById('confirmPass').value;
+  if(newP == "" || confP == ""){ alert("Please fill both fields"); return; }
+  if(newP != confP){ alert("Password not matching!"); return; }
+  document.getElementById('passMsg').style.display = 'block';
+  document.getElementById('newPass').value = "";
+}
+
+// 3. Logout
+function doLogout(){
+  if(confirm("کیا آپ واقعی Logout کرنا چاہتے ہیں؟")){
+    alert("Logout Successful!");
+    window.location.href = "homepage.html";
+  }
+}
+</script>
+
+</body>
+</html>

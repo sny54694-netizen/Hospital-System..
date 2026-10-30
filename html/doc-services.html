@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - MediCare+</title>
+    <link rel="stylesheet" href="../css/doc-services.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+<!-- Header Same as doctor page -->
+<header>
+    <div class="logo"><i class='bx bx-plus-medical'></i> MediCare+</div>
+    <nav>
+        <a href="../html/homepage.html">Home</a>
+        <a href="../html/doctorpage.html">Find Doctors</a>
+        <a href="../html/doctor-hospital.html">Hospitals</a>
+        <a href="../html/doc-services.html" class="active">Services</a>
+        <a href="../html/doc-pharmacies.html">Pharmacies</a>
+        <a href="../html/doc-contect.html">Contact</a>
+    </nav>
+    <a href="./emergency-contect.html"><button class="btn-blue">Emergency</button></a>
+</header>
+
+<div class="breadcrumb">Home > Services</div>
+
+<h2 class="page-title">Our Medical Services</h2>
+<p class="page-subtitle">Comprehensive healthcare solutions for you and your family</p>
+
+<main class="services-container">
+    <div class="service-card">
+        <div class="icon-box"><i class='bx bxs-heart'></i></div>
+        <h3>Cardiology</h3>
+        <p>Complete heart care including ECG, Echo, Angiography and heart failure management.</p>
+        <span><i class='bx bxs-check-circle'></i> 24/7 Available</span>
+        <button class="btn-outline serviceBtn" data-service="Cardiology">Book Now</button>
+    </div>
+
+    <div class="service-card">
+        <div class="icon-box blue"><i class='bx bxs-baby-carriage'></i></div>
+        <h3>Pediatrics</h3>
+        <p>Specialized care for infants, children and adolescents with expert pediatricians.</p>
+        <span><i class='bx bxs-check-circle'></i> Child Specialist</span>
+        <button class="btn-outline serviceBtn" data-service="Pediatrics">Book Now</button>
+    </div>
+
+    <div class="service-card">
+        <div class="icon-box green"><i class='bx bx-test-tube'></i></div>
+        <h3>Laboratory</h3>
+        <p>Blood tests, urine tests, full body checkup reports within 2 hours.</p>
+        <span><i class='bx bxs-check-circle'></i> Fast Report</span>
+        <button class="btn-outline serviceBtn" data-service="Laboratory">Book Now</button>
+    </div>
+
+    <div class="service-card">
+        <div class="icon-box red"><i class='bx bxs-ambulance'></i></div>
+        <h3>Emergency Care</h3>
+        <p>24/7 ambulance, ICU, trauma center with top emergency doctors.</p>
+        <span><i class='bx bxs-error'></i> Call 911</span>
+        <button class="btn-outline serviceBtn" data-service="Emergency">Call Now</button>
+    </div>
+
+    <div class="service-card">
+        <div class="icon-box orange"><i class='bx bx-brain'></i></div>
+        <h3>Neurology</h3>
+        <p>Advanced treatment for brain, spine and nervous system disorders.</p>
+        <span><i class='bx bxs-check-circle'></i> Expert Doctors</span>
+        <button class="btn-outline serviceBtn" data-service="Neurology">Book Now</button>
+    </div>
+
+    <div class="service-card">
+        <div class="icon-box purple"><i class='bx bxs-bone'></i></div>
+        <h3>Orthopedics</h3>
+        <p>Joint replacement, fracture treatment and sports injury care.</p>
+        <span><i class='bx bxs-check-circle'></i> Surgery Available</span>
+        <button class="btn-outline serviceBtn" data-service="Orthopedics">Book Now</button>
+    </div>
+</main>
+
+<!-- Modal -->
+<div id="serviceModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal">&times;</span>
+        <h2 id="modalTitle">Service</h2>
+        <p>اپنی appointment بک کریں</p>
+        <input type="text" id="userName" placeholder="Your Name">
+        <input type="text" id="userPhone" placeholder="Phone Number">
+        <button class="btn-blue" id="confirmService" style="width:100%; margin-top:10px;">Confirm Booking</button>
+        <p id="serviceMsg" style="font-size:12px; text-align:center; margin-top:10px;"></p>
+    </div>
+</div>
+
+<script src="../js/doc-services.js"></script>
+</body>
+</html>

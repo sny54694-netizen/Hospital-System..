@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitals - MediCare+</title>
+    <link rel="stylesheet" href="../css/doctor-hospital.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+<header>
+    <div class="logo"><i class='bx bx-plus-medical'></i> MediCare+</div>
+    <nav>
+        <a href="../html/homepage.html">Home</a>
+        <a href="../html/doctorpage.html">Find Doctors</a>
+        <a href="../html/doctor-hospital.html" class="active">Hospitals</a>
+        <a href="../html/doc-services.html">Services</a>
+        <a href="../html/doc-contect.html">Contact</a>
+    </nav>
+    <a href="../html/emergency-contect.html"><button class="btn-blue">Emergency</button></a>
+</header>
+
+<div class="breadcrumb">Home > Hospitals</div>
+
+<h2 class="page-title">Our Partner Hospitals</h2>
+<p class="page-subtitle">24/7 Emergency, Modern Facilities, Certified Doctors</p>
+
+<main class="hospital-container">
+    
+    <div class="hospital-card">
+        <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc" alt="Hospital">
+        <div class="h-info">
+            <h3>City General Hospital</h3>
+            <p><i class='bx bxs-map'></i> 123 Healthway Ave, New York, NY 10001</p>
+            <p><i class='bx bxs-star'></i> 4.9 (320 Reviews) • <b>24/7 Emergency</b></p>
+            <div class="h-tags">
+                <span>Cardiology</span>
+                <span>Emergency</span>
+                <span>ICU</span>
+            </div>
+            <div class="h-btns">
+                <button class="btn-primary viewBtn" data-name="City General Hospital">View Details</button>
+                <button class="btn-outline" onclick="window.location.href='tel:+923182959234'"><i class='bx bxs-phone'></i> Call</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hospital-card">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d" alt="Hospital">
+        <div class="h-info">
+            <h3>MediCare+ Central Hospital</h3>
+            <p><i class='bx bxs-map'></i> 45 Medical Plaza, NY</p>
+            <p><i class='bx bxs-star'></i> 4.8 (210 Reviews) • <b>Cardiology Special</b></p>
+            <div class="h-tags">
+                <span>Pediatrics</span>
+                <span>Lab Tests</span>
+                <span>Radiology</span>
+            </div>
+            <div class="h-btns">
+                <button class="btn-primary viewBtn" data-name="MediCare+ Central">View Details</button>
+                <!-- <button class="btn-outline"><i class='bx bxs-phone'></i> Call</button>
+            </div> -->
+            <button class="btn-outline" onclick="window.location.href='tel:+923132657419'"><i class='bx bxs-phone'></i> Call</button>
+        </div>
+    </div>
+
+</main>
+
+<!-- Detail Modal - Yeh andar wali setting hai -->
+<div id="detailModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal">&times;</span>
+        <h2 id="modalName">Hospital Name</h2>
+        <p id="modalAddress"></p>
+        <hr>
+        <h4>Available Services:</h4>
+        <p>✅ 24/7 Emergency • ✅ Ambulance • ✅ ICU • ✅ Laboratory • ✅ Pharmacy</p>
+        <h4>Doctors Available:</h4>
+        <p>Dr. Jack Miller (Cardiology), Dr. James Wilson (Surgeon)</p>
+        <button class="btn-blue" style="width:100%; margin-top:15px; justify-content:center;">Book Appointment at this Hospital</button>
+    </div>
+</div>
+
+<script src="../js/doctor-hospital.js"></script>
+</body>
+</html>

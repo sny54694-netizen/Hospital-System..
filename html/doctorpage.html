@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Jack Miller - MediCare+</title>
+    <link rel="stylesheet" href="../css/doctorpage.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <span><i class='bx bxs-error'></i> Emergency? Call 911</span>
+    <span><i class='bx bxs-phone'></i> 24/7 Helpline: +1 (800) 555-HEAL</span>
+    <span><i class='bx bxs-envelope'></i> emergency@healthcare.com</span>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="logo"> <i class='bx bx-plus-medical'></i> MediCare+</div>
+    <nav>
+        <a href="../html/doctorpage.html" class="active">Find Doctors</a>
+        <a href="../html/doctor-hospital.html">Hospitals</a>
+        <a href="../html/doc-services.html">Services</a>
+        <a href="../html/doc-pharmacies.html">Pharmacies</a>
+        <a href="../html/doc-contect.html">Contact</a>
+    </nav>
+    <div class="header-right">
+        
+        <a href="doc-myaccount.html" style="text-decoration:none; color:inherit;">
+        <i class='bx bx-bell'></i> My Account</a>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+    Home > Find Doctors > Cardiologists > Dr. Jack Miller
+</div>
+
+<!-- Main Content -->
+<main class="container">
+    
+    <!-- Left Card -->
+    <div class="left-card">
+        <img src="https://img.freepik.com/premium-photo/handsome-male-doctor-medical-gown-stands-hospital-labor-day-medical-professional_826801-5904.jpg" alt="Dr. Jack Miller" class="doctor-img">
+        <h2>Dr. Jack Miller</h2>
+        <span class="specialty"><i class='bx bx-heart'></i> Cardiology</span>
+        
+        <div class="info">
+            <p><b>Qualification:</b> MBBS, MD (Cardiology), FACC</p>
+            <p><b>Experience:</b> <i class='bx bxs-briefcase'></i> 15 Years</p>
+            <p class="rating"><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i> 4.9 • 120 Reviews</p>
+            <p><i class='bx bxs-building'></i> Affiliated with City General Hospital</p>
+        </div>
+
+        <div class="btn-row" style="display: flex; justify-content: space-around;">
+            <button onclick="openChat()" style="background: #0869b9; color:white; padding:10px 20px; border-radius:8px; border:none; cursor:pointer; font-weight:bold;;width: 230px;">💬 Message Doctor</button>
+
+            <button onclick="shareProfile()" style="background:white; border:1px solid #cbd5e1; padding:10px 20px; border-radius:8px; cursor:pointer; width: 230px;">🔗 Share Profile</button>
+        </div>
+        <div class="badge-row">
+            <span><i class='bx bxs-check-circle'></i> Verified Doctor</span>
+            <span><i class='bx bxs-check-circle'></i> Board Certified</span>
+        </div>
+    </div>
+
+    <!-- Share Modal - اس کو بٹن کے نیچے پیسٹ کریں -->
+<div id="shareModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:9999;">
+  <div style="background:white; width:90%; max-width:320px; border-radius:15px; padding:20px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:15px;">
+      <b>Share Profile</b>
+      <span onclick="closeShare()" style="cursor:pointer; font-size:22px;">&times;</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+      <button onclick="shareOn('whatsapp')" style="padding:12px; border:none; border-radius:10px; background:#25D366; color:white; cursor:pointer;">WhatsApp</button>
+      <button onclick="shareOn('facebook')" style="padding:12px; border:none; border-radius:10px; background:#1877F2; color:white; cursor:pointer;">Facebook</button>
+      <button onclick="shareOn('messenger')" style="padding:12px; border:none; border-radius:10px; background:#0084FF; color:white; cursor:pointer;">Messenger</button>
+      <button onclick="shareOn('copy')" style="padding:12px; border:none; border-radius:10px; background:#1e40af; color:white; cursor:pointer;">Copy Link</button>
+    </div>
+  </div>
+</div>
+    <!-- Right Card -->
+    <div class="right-card">
+        <h2>Book an Appointment</h2>
+        <div class="fee-row">
+            <p>Consultation Fee</p>
+            <h3>$80 <span>Per Consultation (30 mins)</span></h3>
+        </div>
+
+        <h4>Available Slots</h4>
+        <div class="date-slider" id="dateSlider">
+            <!-- تاریخ یہاں خود آئے گی -->
+        </div>
+
+        <p class="slot-title">Morning • 3 slots</p>
+        <div class="time-slots">
+            <button class="time-active">09:30 AM</button>
+            <button>10:00 AM</button>
+            <button>10:30 AM</button>
+            <button>11:30 AM</button>
+            <button>11:00 AM</button>
+        </div>
+
+        <p class="slot-title">Afternoon • 2 slots</p>
+        <div class="time-slots">
+            <button>02:00 PM</button>
+            <button>02:30 PM</button>
+        </div>
+        <p id="bookingMsg" style="text-align:center; font-size:13px; margin-top:10px; font-weight:bold;"></p>
+        <button class="book-btn" id="bookAppointmentBtn">Book Appointment</button>
+        
+        <p class="cancel-note"><i class='bx bx-shield-quarter'></i> Free cancellation up to 24 hours before appointment</p>
+    </div>
+    
+
+  </main>
+
+  <!-- Bottom Tabs -->
+  <div class="tabs">
+      <button class="tab-active">About Doctor</button>
+      <!-- <button>Schedule</button>
+      <button>Reviews</button> -->
+  </div>
+
+  <section class="about-section">
+      <h3>Areas of Expertise:</h3>
+      <p>Dr. Jack Miller is a highly experienced Cardiologist with over 15 years of expertise in diagnosing and treating cardiovascular diseases. He specializes in preventive cardiology, heart failure management, arrhythmia, and cardiac imaging.</p>
+      <div class="tags">
+        <span>Heart Failure Management</span>
+        <span>Preventive Cardiology</span>
+        <span>Cardiac Arrhythmia</span>
+        <span>Cardiac Imaging</span>
+    </div>
+    <h3>Education & Training:</h3>
+    <p>MD (Cardiology) — Harvard Medical School, 2011<br>MBBS — University of Toronto, 2008</p>
+</section>
+
+<!-- Chat Box - Ye pehle chupa hua rahega -->
+<div id="chatBox" style="display:none; position:fixed; bottom:20px; right:20px; width:340px; background:white; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.2); z-index:999; border:1px solid #e2e8f0;">
+  
+  <div style="background:#1e40af; color:white; padding:12px 15px; border-radius:15px 15px 0 0; display:flex; justify-content:space-between; align-items:center;">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <!-- <div style="width:35px; height:35px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center;">👨‍⚕️</div> -->
+       <img src="https://img.freepik.com/premium-photo/handsome-male-doctor-medical-gown-stands-hospital-labor-day-medical-professional_826801-5904.jpg" alt="dr.jack" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid white;">
+      <div>
+        <b style="font-size:14px;">Dr. Jack Miller</b><br>
+        <span style="font-size:11px; opacity:0.8;">● Online - Cardiology</span>
+      </div>
+    </div>
+    <span onclick="closeChat()" style="cursor:pointer; font-size:20px;">×</span>
+  </div>
+
+  <div id="chatMessages" style="height:250px; padding:15px; overflow-y:auto; background:#f8fafc;">
+    <div style="background:#e0e7ff; padding:8px 12px; border-radius:12px 12px 12px 0; width:fit-content; max-width:80%; font-size:13px; margin-bottom:10px;">
+      Hello! I'm Dr. Jack Miller. How can I help you today?
+    </div>
+  </div>
+
+  <div style="padding:10px; display:flex; gap:8px; border-top:1px solid #e2e8f0;">
+    <input id="chatInput" type="text" placeholder="Type your message..." style="flex:1; padding:10px; border:1px solid #cbd5e1; border-radius:20px; outline:none;">
+    <button onclick="sendMessage()" style="background:#1e40af; color:white; border:none; width:40px; height:40px; border-radius:50%; cursor:pointer;">➤</button>
+  </div>
+</div>
+
+<script>
+function openChat(){
+  document.getElementById('chatBox').style.display = 'block';
+}
+
+function closeChat(){
+  document.getElementById('chatBox').style.display = 'none';
+}
+
+function sendMessage(){
+  let input = document.getElementById('chatInput');
+  let msg = input.value.trim();
+  if(msg === "") return;
+  
+  let box = document.getElementById('chatMessages');
+  box.innerHTML += `<div style="background:#1e40af; color:white; padding:8px 12px; border-radius:12px 12px 0 12px; width:fit-content; max-width:80%; font-size:13px; margin:10px 0 10px auto; text-align:right;">${msg}</div>`;
+  
+  input.value = "";
+  box.scrollTop = box.scrollHeight;
+
+  // Doctor ka auto reply 1 sec baad
+  setTimeout(()=>{
+    box.innerHTML += `<div style="background:#e0e7ff; padding:8px 12px; border-radius:12px 12px 12px 0; width:fit-content; max-width:80%; font-size:13px; margin-bottom:10px;">Thanks for your message. I will review and reply shortly. For emergency, please book an appointment.</div>`;
+    box.scrollTop = box.scrollHeight;
+  }, 1000);
+}
+
+function shareProfile(){
+  let url = window.location.href;
+  navigator.clipboard.writeText(url);
+  alert("Profile link copied! Link: " + url);
+}
+
+// Enter se bhi message send ho
+document.addEventListener('keypress', function(e){
+  if(e.key === 'Enter' && document.getElementById('chatBox').style.display === 'block'){
+    sendMessage();
+  }
+});
+</script>
+
+<script>
+function shareProfile(){
+  const modal = document.getElementById('shareModal');
+  modal.style.display = 'flex'; // پاپ اپ کھول دو
+
+  // اگر موبائل ہے تو موبائل کا اپنا شیئر مینو کھول دو
+  if(navigator.share){
+    navigator.share({
+      title: 'Dr. Jack Miller - Cardiology',
+      text: 'Check this verified doctor profile',
+      url: window.location.href
+    }).catch(()=>{});
+  }
+}
+
+function closeShare(){
+  document.getElementById('shareModal').style.display = 'none';
+}
+
+function shareOn(type){
+  const url = encodeURIComponent(window.location.href);
+  const text = encodeURIComponent("Dr. Jack Miller - Cardiology Specialist - Book Appointment");
+
+  if(type === 'whatsapp'){
+    window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
+  }
+  if(type === 'facebook'){
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+  }
+  if(type === 'messenger'){
+    window.open(`fb-messenger://share/?link=${url}`, '_blank');
+  }
+  if(type === 'copy'){
+    navigator.clipboard.writeText(window.location.href);
+    alert("Link Copied! ✅");
+    closeShare();
+  }
+}
+
+// باہر کلک پر بند ہو جائے
+window.addEventListener('click', function(e){
+  const modal = document.getElementById('shareModal');
+  if(e.target === modal) closeShare();
+});
+</script>
+
+
+
+<script src="../js/doctorpage.js"></script>
+</body>
+</html>

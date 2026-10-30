@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel - Single Table</title>
+  <style>
+    body{ font-family: sans-serif; padding: 20px; background: #f5f7fb; }
+    h2{ color: #1e3a8a; }
+    .tabs{ margin-bottom: 20px; }
+    .tabs button{ padding: 10px 20px; border: none; cursor: pointer; background: #ddd; margin-right: 5px; border-radius: 5px; font-weight: bold; }
+    .tabs button.active{ background: #1e3a8a; color: white; }
+    table{ width: 100%; border-collapse: collapse; background: white; }
+    th, td{ border: 1px solid #ddd; padding: 10px; text-align: left; }
+    th{ background: #1e3a8a; color: white; }
+    .del{ background: red; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px; }
+    .hidden{ display: none; }
+  </style>
+</head>
+<body>
+
+<h2>Admin Panel</h2>
+
+<div class="tabs">
+  <button id="btnMsg" class="active" onclick="showTab('messages')">Contact Messages</button>
+  <button id="btnBooking" onclick="showTab('bookings')">Doctor Bookings</button>
+</div>
+
+<!-- Contact Messages Section -->
+<div id="messagesSection">
+  <button onclick="clearAllMessages()" style="margin-bottom:10px;">Delete All Messages</button>
+  <table>
+    <thead><tr><th>Name</th><th>Email</th><th>Subject</th><th>Message</th><th>Date</th><th>Action</th></tr></thead>
+    <tbody id="msgTableBody"></tbody>
+  </table>
+</div>
+
+<!-- Doctor Bookings Section -->
+<div id="bookingsSection" class="hidden">
+  <button onclick="clearAllBookings()" style="margin-bottom:10px;">Delete All Bookings</button>
+  <table>
+    <thead><tr><th>#</th><th>Doctor</th><th>Date</th><th>Time</th><th>Fee</th><th>Booked At</th><th>Action</th></tr></thead>
+    <tbody id="bookingTableBody"></tbody>
+  </table>
+</div>
+
+<script>
+  function showTab(type){
+    if(type === 'messages'){
+      document.getElementById('messagesSection').classList.remove('hidden');
+      document.getElementById('bookingsSection').classList.add('hidden');
+      document.getElementById('btnMsg').classList.add('active');
+      document.getElementById('btnBooking').classList.remove('active');
+    } else {
+      document.getElementById('bookingsSection').classList.remove('hidden');
+      document.getElementById('messagesSection').classList.add('hidden');
+      document.getElementById('btnBooking').classList.add('active');
+      document.getElementById('btnMsg').classList.remove('active');
+    }
+  }
+
+  let msgTableBody = document.getElementById('msgTableBody');
+  let messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+  function showMessages(){
+    if(messages.length === 0){ msgTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center;">کوئی میسج نہیں</td></tr>`; return; }
+    msgTableBody.innerHTML = "";
+    messages.forEach((m, i) => {
+      msgTableBody.innerHTML += `<tr><td>${m.name}</td><td>${m.email}</td><td>${m.subject}</td><td>${m.message}</td><td>${m.date}</td><td><button class="del" onclick="deleteMessage(${i})">Delete</button></td></tr>`;
+    });
+  }
+  function deleteMessage(i){ messages.splice(i,1); localStorage.setItem('contactMessages', JSON.stringify(messages)); showMessages(); }
+  function clearAllMessages(){ if(confirm("سارے میسج ڈیلیٹ کریں؟")){ localStorage.removeItem('contactMessages'); messages=[]; showMessages(); } }
+
+  let bookingTableBody = document.getElementById('bookingTableBody');
+  let bookings = JSON.parse(localStorage.getItem('doctorBookings')) || [];
+  function showBookings(){
+    bookings = JSON.parse(localStorage.getItem('doctorBookings')) || [];
+    if(bookings.length === 0){ bookingTableBody.innerHTML = `<tr><td colspan="7" style="text-align:center;">کوئی اپائنٹمنٹ نہیں</td></tr>`; return; }
+    bookingTableBody.innerHTML = "";
+    bookings.forEach((b, i) => {
+      bookingTableBody.innerHTML += `<tr><td>${i+1}</td><td>${b.doctor}</td><td>${b.date}</td><td>${b.time}</td><td>${b.fee}</td><td>${b.bookedAt}</td><td><button class="del" onclick="deleteBooking(${i})">Delete</button></td></tr>`;
+    });
+  }
+  function deleteBooking(i){ bookings.splice(i,1); localStorage.setItem('doctorBookings', JSON.stringify(bookings)); showBookings(); }
+  function clearAllBookings(){ if(confirm("ساری بکنگز ڈیلیٹ کریں؟")){ localStorage.removeItem('doctorBookings'); showBookings(); } }
+
+  showMessages();
+  showBookings();
+  showTab('bookings'); // شروع میں بکنگ والی ٹیبل دکھائے گا، اگر میسج والی چاہیے تو 'messages' لکھ دیں
+</script>
+</body>
+</html>

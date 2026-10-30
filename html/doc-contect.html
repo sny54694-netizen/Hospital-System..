@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - MediCare+</title>
+    <link rel="stylesheet" href="../css/doc-contect.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+<header>
+    <div class="logo"><i class='bx bx-plus-medical'></i> MediCare+</div>
+    <nav>
+        <a href="../html/homepage.html">Home</a>
+        <a href="../html/doctorpage.html">Find Doctors</a>
+        <a href="../html/doctor-hospital.html">Hospitals</a>
+        <a href="../html/doc-services.html">Services</a>
+        <a href="../html/doc-pharmacies.html">Pharmacies</a>
+        <a href="../html/doc-contect.html" class="active">Contact</a>
+    </nav>
+   <a href="../html/emergency-contect.html"><button class="btn-blue">Emergency</button></a>
+</header>
+
+<div class="breadcrumb">Home > Contact</div>
+
+<h2 class="page-title">Contact Us</h2>
+<p class="page-subtitle">We are here to help you 24/7</p>
+
+<main class="contact-container">
+    <!-- Left Info -->
+    <div class="contact-info">
+        <div class="info-card">
+            <i class='bx bxs-map'></i>
+            <div>
+                <h4>Our Location</h4>
+                <p>123 Healthway Ave, New York, NY 10001</p>
+            </div>
+        </div>
+        <div class="info-card">
+            <i class='bx bxs-phone'></i>
+            <div>
+                <h4>Phone Number</h4>
+                <p>+1 (555) 123-4567 - Emergency 24/7</p>
+            </div>
+        </div>
+        <div class="info-card">
+            <i class='bx bxs-envelope'></i>
+            <div>
+                <h4>Email Address</h4>
+                <p>support@medicareplus.com</p>
+            </div>
+        </div>
+        <div class="map-box">
+            <iframe src="https://maps.google.com/maps?q=New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Right Form -->
+    <div class="contact-form">
+        <h3>Send us a Message</h3>
+        <input type="text" id="cName" placeholder="Your Full Name">
+        <input type="email" id="cEmail" placeholder="Your Email">
+        <input type="text" id="cSubject" placeholder="Subject">
+        <textarea id="cMessage" rows="5" placeholder="Your Message..."></textarea>
+        <button class="btn-blue" id="sendBtn">Send Message</button>
+        <p id="cMsg"></p>
+    </div>
+</main>
+
+<!-- <script src="../js/doc-contect.js"></script> -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    let btn = document.getElementById('sendBtn');
+    console.log("Button found:", btn); // ye F12 me check karne ke liye
+
+    if(btn){
+      btn.addEventListener('click', function(e){
+        e.preventDefault(); // ye sab se zaroori hai, warna page reload ho jata hai
+
+        let name = document.getElementById('cName').value;
+        let email = document.getElementById('cEmail').value;
+        let subject = document.getElementById('cSubject').value;
+        let message = document.getElementById('cMessage').value;
+        let msgBox = document.getElementById('cMsg');
+
+        if(name == "" || email == "" || message == ""){
+          msgBox.innerText = "Please fill all fields";
+          msgBox.style.color = "red";
+          return;
+        }
+
+        let allMessages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+        allMessages.push({ name, email, subject, message, date: new Date().toLocaleString() });
+        localStorage.setItem('contactMessages', JSON.stringify(allMessages));
+
+        msgBox.innerText = "Shukriya! Message send ho gaya hai";
+        msgBox.style.color = "green";
+        
+        alert("Message Save Ho Gaya!");
+      });
+    } else {
+      console.log("sendBtn nahi mil raha, ID check karen");
+    }
+  });
+</script>
+
+</body>
+</html>

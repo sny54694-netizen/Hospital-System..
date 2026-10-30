@@ -1,0 +1,161 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+body{
+    background:#f5f6f8;
+    color:#1a2a4a;
+}
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 5%;
+    background:#fff;
+    box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    position:sticky;
+    top:0;
+}
+.logo{
+    font-size:22px;
+    font-weight:800;
+    color:#0a56c0;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+.logo i{
+    background:#0a68e0;
+    color:#fff;
+    padding:5px;
+    border-radius:8px;
+}
+nav a{
+    text-decoration:none;
+    color:#333;
+    margin:0 12px;
+    font-size:14px;
+}
+nav a.active{
+    color:#0a68e0;
+    font-weight:700;
+    border-bottom:2px solid #0a68e0;
+}
+.btn-blue{
+    background:#0a68e0;
+    color:#fff;
+    border:none;
+    padding:8px 16px;
+    border-radius:6px;
+    cursor:pointer;
+}
+.breadcrumb{
+    padding:15px 5%;
+    font-size:12px;
+    color:#777;
+}
+.page-title{
+    text-align:center;
+    margin-top:10px;
+}
+.page-subtitle{
+    text-align:center;
+    font-size:13px;
+    color:#666;
+    margin-bottom:20px;
+}
+.hospital-container{
+    padding:0 5%;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+.hospital-card{
+    background:#fff;
+    display:flex;
+    gap:20px;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.07);
+}
+.hospital-card img{
+    width:220px;
+    height:150px;
+    border-radius:10px;
+    object-fit:cover;
+}
+.h-info h3{
+    font-size:18px;
+    margin-bottom:5px;
+}
+.h-info p{
+    font-size:12px;
+    color:#555;
+    margin:4px 0;
+}
+.h-info p i{
+    color:#0a68e0;
+}
+.h-tags{
+    display:flex;
+    gap:6px;
+    margin:8px 0;
+}
+.h-tags span{
+    background:#dbeafe;
+    color:#0a56c0;
+    font-size:10px;
+    padding:3px 8px;
+    border-radius:20px;
+}
+.h-btns{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+}
+.btn-primary{
+    background:#0a68e0;
+    color:#fff;
+    border:none;
+    padding:7px 14px;
+    border-radius:6px;
+    font-size:12px;
+    cursor:pointer;
+}
+.btn-outline{
+    background:#fff;
+    border:1px solid #0a56c0;
+    color:#0a56c0;
+    padding:7px 14px;
+    border-radius:6px;
+    font-size:12px;
+    cursor:pointer;
+}
+/* Modal - andar wali setting */
+.modal{
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.5);
+    justify-content:center;
+    align-items:center;
+    z-index:200;
+}
+.modal-content{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    width:90%;
+    max-width:450px;
+    position:relative;
+}
+#closeModal{
+    position:absolute;
+    right:15px;
+    top:10px;
+    font-size:22px;
+    cursor:pointer;
+}

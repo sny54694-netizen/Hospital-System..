@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacies - MediCare+</title>
+    <link rel="stylesheet" href="../css/doc-pharmacies.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+</head>
+<body>
+
+<header>
+    <div class="logo"><i class='bx bx-plus-medical'></i> MediCare+</div>
+    <nav>
+        <a href="../html/homepage.html">Home</a>
+        <a href="../html/doctorpage.html">Find Doctors</a>
+        <a href="../html/doctor-hospital.html">Hospitals</a>
+        <a href="../html/doc-services.html">Services</a>
+        <a href="pharmacies.html" class="active">Pharmacies</a>
+        <a href="../html/doc-contect.html">Contact</a>
+    </nav>
+    <div class="cart-box"><i class='bx bxs-cart'></i> <span id="cartCount">0</span></div>
+</header>
+
+<div class="breadcrumb">Home > Pharmacies</div>
+
+<h2 class="page-title">Online Pharmacy</h2>
+<p class="page-subtitle">Order medicines, 2-hour delivery, 100% genuine</p>
+
+<div class="search-bar">
+    <i class='bx bx-search'></i>
+    <input type="text" id="searchMedicine" placeholder="Search medicines e.g. Panadol, Vitamin C...">
+</div>
+
+<main class="pharmacy-container">
+    <div class="med-card" data-name="Panadol Extra">
+        <div class="med-icon"><i class='bx bxs-capsule'></i></div>
+        <h3>Panadol Extra</h3>
+        <p>Paracetamol 500mg - 10 Tablets</p>
+        <h4>$5.99 <span>$7.99</span></h4>
+        <p class="stock">✅ In Stock</p>
+        <button class="btn-blue addToCart" data-name="Panadol Extra" data-price="5.99">Add to Cart</button>
+    </div>
+
+    <div class="med-card" data-name="Vitamin C">
+        <div class="med-icon blue"><i class='bx bxs-flask'></i></div>
+        <h3>Vitamin C 1000mg</h3>
+        <p>Immunity Booster - 60 Tablets</p>
+        <h4>$12.50 <span>$15.00</span></h4>
+        <p class="stock">✅ In Stock</p>
+        <button class="btn-blue addToCart" data-name="Vitamin C" data-price="12.50">Add to Cart</button>
+    </div>
+
+    <!-- <div class="med-card" data-name="Cough Syrup">
+        <i class="fa-solid fa-prescription-bottle-medical"></i>
+        <h3>Benadryl Syrup</h3>
+        <p>Cough Relief - 120ml</p>
+        <h4>$8.20 <span>$9.50</span></h4>
+        <p class="stock">✅ In Stock</p>
+        <button class="btn-blue addToCart" data-name="Cough Syrup" data-price="8.20">Add to Cart</button>
+    </div> -->
+
+    <div class="med-card" data-name="Blood Pressure Monitor">
+        <div class="med-icon red"><i class='bx bxs-heart'></i></div>
+        <h3>BP Monitor</h3>
+        <p>Digital Automatic - 1 Unit</p>
+        <h4>$45.00 <span>$55.00</span></h4>
+        <p class="stock">✅ Limited Stock</p>
+        <button class="btn-blue addToCart" data-name="BP Monitor" data-price="45.00">Add to Cart</button>
+    </div>
+</main>
+
+<!-- Cart Modal -->
+<div id="cartModal" class="modal">
+    <div class="modal-content">
+        <span id="closeCart">&times;</span>
+        <h2>Your Cart</h2>
+        <div id="cartItems" style="margin:10px 0; font-size:13px;"></div>
+        <hr>
+        <h3 id="cartTotal">Total: $0</h3>
+        <button class="btn-blue" id="checkoutBtn" style="width:100%; margin-top:10px;">Checkout</button>
+        <p id="checkoutMsg" style="font-size:12px; text-align:center; margin-top:8px;"></p>
+    </div>
+</div>
+
+<script src="../js/doc-pharmacies.js"></script>
+</body>
+</html>
