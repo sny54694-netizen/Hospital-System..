@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Panel - Single Table</title>
   <style>
     body{ font-family: sans-serif; padding: 20px; background: #f5f7fb; }
@@ -14,6 +15,39 @@
     th{ background: #1e3a8a; color: white; }
     .del{ background: red; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px; }
     .hidden{ display: none; }
+
+    /* ===== Final Admin Responsive ===== */
+    @media screen and (max-width: 768px) {
+      body { padding: 10px !important; overflow-x: hidden; }
+      h2 { font-size: 20px !important; text-align: center; }
+      .tabs { display: flex !important; gap: 8px; }
+      .tabs button { flex: 1; padding: 10px 5px !important; font-size: 13px !important; }
+      table, thead, tbody, th, td, tr { display: block; }
+      thead { display: none; }
+      table { background: transparent !important; min-width: 100% !important; }
+      tr {
+        background: #fff;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        border: 1px solid #eee;
+      }
+      td {
+        border: none !important;
+        padding: 6px 0 !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        font-size: 13px !important;
+        text-align: right !important;
+      }
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #1e3a8a;
+        text-align: left;
+      }
+    }
   </style>
 </head>
 <body>
@@ -61,10 +95,18 @@
   let msgTableBody = document.getElementById('msgTableBody');
   let messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
   function showMessages(){
+    messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
     if(messages.length === 0){ msgTableBody.innerHTML = `<tr><td colspan="6" style="text-align:center;">کوئی میسج نہیں</td></tr>`; return; }
     msgTableBody.innerHTML = "";
     messages.forEach((m, i) => {
-      msgTableBody.innerHTML += `<tr><td>${m.name}</td><td>${m.email}</td><td>${m.subject}</td><td>${m.message}</td><td>${m.date}</td><td><button class="del" onclick="deleteMessage(${i})">Delete</button></td></tr>`;
+      msgTableBody.innerHTML += `<tr>
+        <td data-label="Name">${m.name}</td>
+        <td data-label="Email">${m.email}</td>
+        <td data-label="Subject">${m.subject}</td>
+        <td data-label="Message">${m.message}</td>
+        <td data-label="Date">${m.date}</td>
+        <td data-label="Action"><button class="del" onclick="deleteMessage(${i})">Delete</button></td>
+      </tr>`;
     });
   }
   function deleteMessage(i){ messages.splice(i,1); localStorage.setItem('contactMessages', JSON.stringify(messages)); showMessages(); }
@@ -77,7 +119,16 @@
     if(bookings.length === 0){ bookingTableBody.innerHTML = `<tr><td colspan="7" style="text-align:center;">کوئی اپائنٹمنٹ نہیں</td></tr>`; return; }
     bookingTableBody.innerHTML = "";
     bookings.forEach((b, i) => {
-      bookingTableBody.innerHTML += `<tr><td>${i+1}</td><td>${b.doctor}</td><td>${b.date}</td><td>${b.time}</td><td>${b.fee}</td><td>${b.bookedAt}</td><td><button class="del" onclick="deleteBooking(${i})">Delete</button></td></tr>`;
+      bookingTableBody.innerHTML += `
+      <tr>
+        <td data-label="#">${i+1}</td>
+        <td data-label="Doctor">${b.doctor}</td>
+        <td data-label="Date">${b.date}</td>
+        <td data-label="Time">${b.time}</td>
+        <td data-label="Fee">${b.fee}</td>
+        <td data-label="Booked At">${b.bookedAt}</td>
+        <td data-label="Action"><button class="del" onclick="deleteBooking(${i})">Delete</button></td>
+      </tr>`;
     });
   }
   function deleteBooking(i){ bookings.splice(i,1); localStorage.setItem('doctorBookings', JSON.stringify(bookings)); showBookings(); }
@@ -85,7 +136,7 @@
 
   showMessages();
   showBookings();
-  showTab('bookings'); // شروع میں بکنگ والی ٹیبل دکھائے گا، اگر میسج والی چاہیے تو 'messages' لکھ دیں
+  showTab('bookings');
 </script>
 </body>
 </html>

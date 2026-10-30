@@ -49,3 +49,76 @@ nav a.active{color:#0a68e0; font-weight:700; border-bottom:2px solid #0a68e0;}
 .modal-content input{width:100%; padding:8px; margin:8px 0; border-radius:6px; border:1px solid #ccc; font-size:13px;}
 #closeModal{position:absolute; right:15px; top:10px; font-size:22px; cursor:pointer;}
 @media(max-width:768px){.services-container{grid-template-columns:1fr;}}
+
+
+/* ===== Responsive Code - Isay CSS File K Akhir Me Paste Karden ===== */
+@media screen and (max-width: 900px){
+  .services-container{
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 0 4% !important;
+  }
+}
+
+@media screen and (max-width: 768px){
+  html, body{
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  header{
+    flex-wrap: wrap !important;
+    padding: 12px 4% !important;
+    gap: 10px !important;
+  }
+  header nav{
+    order: 3;
+    width: 100% !important;
+    display: flex !important;
+    gap: 10px !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    border-top: 1px solid #eee !important;
+    padding-top: 10px !important;
+    margin-top: 5px !important;
+  }
+  header nav::-webkit-scrollbar{
+    display: none;
+  }
+  header nav a{
+    margin: 0 !important;
+    font-size: 13px !important;
+  }
+  .breadcrumb{
+    padding: 10px 4% !important;
+  }
+  .page-title{
+    font-size: 22px !important;
+    padding: 0 10px !important;
+  }
+  .page-subtitle{
+    padding: 0 15px !important;
+  }
+  .services-container{
+    grid-template-columns: 1fr !important;
+    padding: 0 4% !important;
+    gap: 15px !important;
+  }
+  .service-card p{
+    height: auto !important;
+  }
+  .modal{
+    padding: 15px !important;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .logo{
+    font-size: 19px !important;
+  }
+  .btn-blue{
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+  }
+  .service-card{
+    padding: 15px !important;
+  }
+}

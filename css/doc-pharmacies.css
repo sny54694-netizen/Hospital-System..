@@ -29,3 +29,67 @@ nav a.active{color:#0a68e0;font-weight:700;border-bottom:2px solid #0a68e0;}
 #closeCart{position:absolute;right:15px;top:10px;font-size:22px;cursor:pointer;}
 @media(max-width:768px){.pharmacy-container{grid-template-columns:1fr 1fr;}}
 
+/* ===== Responsive Code - Isay CSS File K Akhir Me Paste Karden ===== */
+@media screen and (max-width: 900px){
+  .pharmacy-container{
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 0 4% !important;
+  }
+}
+
+@media screen and (max-width: 768px){
+  html, body{
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  header{
+    flex-wrap: wrap !important;
+    padding: 12px 4% !important;
+    gap: 10px !important;
+  }
+  header nav{
+    order: 3;
+    width: 100% !important;
+    display: flex !important;
+    gap: 10px !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    border-top: 1px solid #eee !important;
+    padding-top: 10px !important;
+    margin-top: 5px !important;
+  }
+  header nav::-webkit-scrollbar{
+    display: none;
+  }
+  header nav a{
+    margin: 0 !important;
+    font-size: 13px !important;
+  }
+  .cart-box{
+    margin-left: auto;
+  }
+  .search-bar{
+    width: 92% !important;
+    margin: 0 auto 15px !important;
+  }
+  .pharmacy-container{
+    grid-template-columns: 1fr !important;
+    padding: 0 4% !important;
+    gap: 15px !important;
+  }
+  .modal{
+    padding: 15px !important;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .logo{
+    font-size: 19px !important;
+  }
+  .page-title{
+    font-size: 20px !important;
+  }
+  .med-card{
+    padding: 12px !important;
+  }
+}

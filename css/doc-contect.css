@@ -23,3 +23,79 @@ nav a.active{color:#0a68e0;font-weight:700;border-bottom:2px solid #0a68e0;}
 .contact-form input:focus, .contact-form textarea:focus{border-color:#0a68e0;}
 #cMsg{font-size:12px;text-align:center;margin-top:10px;}
 @media(max-width:768px){.contact-container{grid-template-columns:1fr;}}
+
+/* ===== Contact Page Responsive - Isay File K Akhir Me Paste Karden ===== */
+@media screen and (max-width: 900px){
+  .contact-container{
+    grid-template-columns: 1fr !important;
+    padding: 0 4% !important;
+    gap: 15px !important;
+  }
+}
+
+@media screen and (max-width: 768px){
+  html, body{
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  header{
+    flex-wrap: wrap !important;
+    padding: 12px 4% !important;
+    gap: 10px !important;
+  }
+  header nav{
+    order: 3;
+    width: 100% !important;
+    display: flex !important;
+    gap: 10px !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    border-top: 1px solid #eee !important;
+    padding-top: 10px !important;
+    margin-top: 5px !important;
+  }
+  header nav::-webkit-scrollbar{
+    display: none;
+  }
+  header nav a{
+    margin: 0 !important;
+    font-size: 13px !important;
+  }
+  .breadcrumb{
+    padding: 10px 4% !important;
+  }
+  .page-title{
+    font-size: 22px !important;
+  }
+  .page-subtitle{
+    padding: 0 15px !important;
+  }
+  .contact-info{
+    order: 2;
+  }
+  .contact-form{
+    order: 1;
+    padding: 15px !important;
+  }
+  .map-box{
+    height: 200px !important;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .logo{
+    font-size: 19px !important;
+  }
+  .btn-blue{
+    padding: 7px 12px !important;
+    font-size: 13px !important;
+  }
+  .info-card{
+    padding: 12px !important;
+  }
+  .info-card i{
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 20px !important;
+  }
+}

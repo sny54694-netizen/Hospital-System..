@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>About Us - MediCare+</title>
   <link rel="stylesheet" href="../css/homepage.css">
   <style>
@@ -9,6 +10,44 @@
     .about-container h1{color:#1e40af; font-size:36px;}
     .about-container h2{color:#1e3a8a; margin-top:30px; border-left:4px solid #2563eb; padding-left:10px;}
     .about-container p{line-height:1.7; color:#444;}
+
+
+    /* ===== About Page Responsive - Isko <style> Tag K Akhir Me Paste Karden ===== */
+@media screen and (max-width: 768px){
+  .about-container{
+    margin: 20px 15px !important;
+    padding: 20px 15px !important;
+    border-radius: 10px !important;
+  }
+  .about-container h1{
+    font-size: 26px !important;
+    text-align: center;
+  }
+  .about-container h2{
+    font-size: 18px !important;
+    margin-top: 20px !important;
+  }
+  .about-container p{
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    text-align: justify;
+  }
+  .btn-blue{
+    width: 100% !important;
+    padding: 12px !important;
+    font-size: 15px !important;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .about-container h1{
+    font-size: 22px !important;
+  }
+  .about-container{
+    margin: 10px !important;
+    padding: 15px !important;
+  }
+}
   </style>
 </head>
 <body>
