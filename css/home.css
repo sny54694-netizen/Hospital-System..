@@ -292,4 +292,82 @@
             .doctor-grid{grid-template-columns:1fr;}
             .hero-right img{height:auto;}
         }
-    
+        /* ===== Responsive Fix - Isay sab se neeche paste karen ===== */
+
+@media (max-width: 768px){
+  header{
+    flex-wrap: wrap;
+    padding: 12px 4%;
+  }
+  header nav{
+    order: 3;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+  }
+  header nav a{
+    margin: 0 8px;
+    font-size: 14px;
+  }
+  header .btn-blue{
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .hero{
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero-left h1{
+    font-size: 30px;
+  }
+  .hero-left p{
+    max-width: 100%;
+  }
+  .hero-btns, .hero-features{
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-right img{
+    height: auto;
+    max-height: 300px;
+  }
+
+  .emer-boxes{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .emer-card{
+    width: 100%;
+  }
+
+  .services{
+    flex-direction: column;
+  }
+  .service-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bottom-section{
+    flex-direction: column;
+  }
+  .doctor-grid{
+    grid-template-columns: 1fr;
+  }
+  .booking-side{
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px){
+  .service-grid{
+    grid-template-columns: 1fr;
+  }
+  .hero-left h1{
+    font-size: 26px;
+  }
+}
